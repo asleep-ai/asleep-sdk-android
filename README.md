@@ -11,14 +11,14 @@
 ## 1.2 API Key
 The API key is required to use the Asleep SDK.
 
-For how to issue an API key, see this link \[[Generate API key](dashboard-generate-api-key)]
+For how to issue an API key, see this link [Generate API key](https://docs-en.asleep.ai/docs/dashboard-generate-api-key)
 
 # 2. Getting Ready
 
 ## 2.1 Install Asleep SDK and Settings
 
 1. Create a project using Android Studio.
-2. Add [\[AsleepSDK.aar\]](android-release-note) file in the [root]/app/libs folder of the generated project folder.
+2. Add [AsleepSDK.aar](https://docs-en.asleep.ai/docs/android-release-note) file in the [root]/app/libs folder of the generated project folder.
 3. Open the AndroidManifest.xml file to add permissions.
 
 ```xml AndroidManifest.xml
