@@ -1,4 +1,4 @@
-[1.0.8(10008)](https://drive.google.com/uc?export=download&id=1w86Y1LG5MJeSbbufRj-Q3ViYmUpYeNFD) 8/29/2023
+[1.0.8](https://drive.google.com/uc?export=download&id=1w86Y1LG5MJeSbbufRj-Q3ViYmUpYeNFD) 8/29/2023
 - Modified internal logic  
 ---
 
