@@ -11,7 +11,7 @@
 ## 1.2 API Key
 The API key is required to use the Asleep SDK.
 
-For how to issue an API key, see this link [Generate API key](https://docs-en.asleep.ai/docs/dashboard-generate-api-key)
+For how to issue an API key, see this link [Generate API key](https://docs-en.asleep.ai/v2.0/docs/dashboard-generate-api-key)
 
 # 2. Getting Ready
 
