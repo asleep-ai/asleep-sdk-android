@@ -233,3 +233,44 @@ Asleep.deleteUser(object : Asleep.DeleteUserIdListener {
     }
 })
 ```
+
+## 3.8 Step 8: Continue Session
+
+- Available from v2.3.0
+
+ In the Android OS, the [Google Play Services](https://play.google.com/store/apps/details?id=com.google.android.gms) package sometimes updates, which can lead to the system forcibly terminating and restarting an app's foreground service. To address this, functionality is provided to continue the operation of the sleepTrackingManager.
+
+Firstly, when the foreground service is restarted by the system, the LifecycleService()'s [onStartCommand](https://developer.android.com/reference/android/app/Service#onStartCommand(android.content.Intent,%20int,%20int)) function is called.
+
+At this time, if there is an unfinished session as determined by the Asleep.hasUnfinishedSession function, the AsleepConfig stored inside the AsleepSDK can be retrieved. A new sleepTrackingManager is then created, and startSleepTracking is called to continue tracking.
+
+```kotlin
+private var asleepConfig: AsleepConfig? = null
+private var sleepTrackingManager: SleepTrackingManager? = null
+...
+override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int { 
+  super.onStartCommand(intent, flags, startId)
+
+	if(Asleep.hasUnfinishedSession(applicationContext)) {
+    asleepConfig = Asleep.getSavedAsleepConfig(applicationContext, BuildConfig.ASLEEP_API_KEY)
+    sleepTrackingManager = Asleep.createSleepTrackingManager(asleepConfig, object : SleepTrackingManager.TrackingListener {
+			override fun onCreate() {
+        ...
+      }
+      override fun onUpload(sequence: Int) {
+      	...
+      }
+      override fun onClose(sessionId: String) {
+      	...
+      }
+      override fun onFail(errorCode: Int, detail: String) {
+      	...
+      }
+    }
+    ...
+    sleepTrackingManager?.startSleepTracking()
+  }
+  ...
+}
+                      
+```
